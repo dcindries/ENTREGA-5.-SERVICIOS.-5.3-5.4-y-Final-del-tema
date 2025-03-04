@@ -1,0 +1,18 @@
+<h1>Lista de CD's</h1>
+
+<div *ngIf="loading" class="loader">
+  <div class="spinner"></div>
+  <p>Cargando CD's, por favor espere...</p>
+</div>
+
+<div *ngIf="errorMessage && !loading" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<ul *ngIf="!loading && !errorMessage">
+  <li *ngFor="let cd of cds">
+    <a (click)="onCdClick(cd)">
+      {{ cd.title }} - {{ cd.artist }}
+    </a>
+  </li>
+</ul>
