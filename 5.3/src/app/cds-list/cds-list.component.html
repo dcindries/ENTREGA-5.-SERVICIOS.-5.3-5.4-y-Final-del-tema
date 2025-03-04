@@ -1,0 +1,11 @@
+<h1>Lista de CD's</h1>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+<ul *ngIf="!errorMessage">
+  <li *ngFor="let cd of cds">
+    <a (click)="onCdClick(cd)">
+      {{ cd.title }} - {{ cd.artist }}
+    </a>
+  </li>
+</ul>
